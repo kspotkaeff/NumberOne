@@ -1,0 +1,50 @@
+Lab Report #1
+Andranik Kulikyan
+Kirt Spotkaeff
+
+Basic Chat program given initially was taking the value of the byte to be sent throught the serial port and therefore loose some time during the communication. For making the board communicate faster we programmed the boards so they will automatically send bytes of information without a user input from computer.
+Below are answered the questions asked in the lab instructions.
+
+1) How will you measure bandwidth with reasonable accuracy?
+For calculating the bandwidth we used the micros() arduino function in two places. Once when the message is ready to send and second time when the message has been received back. We modified the second board code so it would receive and instantly sent the packet back. Once we have the time calculated we divide it by two so we have the time of the transmission in one direction. That time is needed to send one packet therefore 127 bytes and therefore 1016 bits. from there the bnadwidth, meaning the number of bits sent per second was calculated to be 2396kB/s. at a farther distance 2373kB/s.
+
+2) How will you determine whether a packet has been dropped?
+In the second code called RealPacketLoss that we submitted we are sending 100 bytes one by one and receiving them back from the other end of the communication. The way the program works is that it will send the byte and check if it has received anything back. If it receive then counter is incremented by one if not then the packet was lost or dropped. In the tests we did we would loose few packets from 100 sent. some results were 97/100, 90/100, 95/100, 80/100 and most cases 100/100 received. When boards are close to each other there is never a loss. Packets are also lost when the boards are oriented away from each other.
+
+3)Do you think you can send data in both directions as quickly? 
+When sending data in both directions the communication slows down because the receiving ends are getting busier. But the messages seem to be sent in both directions almost as quickly as in one direction.
+
+4)How do these measurement vary as the boards move farther apart? 
+As boards are moved farther apart from each other the possibility of loosing some packets was proved to be increasing. But the loss was not very big and the percentage lost was around 10% from 100 packets sent. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

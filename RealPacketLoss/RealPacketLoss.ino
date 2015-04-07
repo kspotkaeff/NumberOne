@@ -38,8 +38,8 @@ void loop()
   if (!rfAvailable())
   {
     counter++;
-    delay(25);
-    if (counter > 100) {
+    delay(1);
+    if (counter > 2500) {
       Serial.println();
       Serial.print(i);
       Serial.println("/100 packets recieved");
